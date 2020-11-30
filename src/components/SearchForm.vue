@@ -31,7 +31,7 @@ import axios from 'axios'
         methods: {
             fetchWeather() {
                 axios
-                .get(`http://api.openweathermap.org/data/2.5/weather?q=${encodeURI(this.query)}&appid=${this.api_key}`)
+                .get(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(this.query)}&appid=${this.api_key}`)
                 .then(response => this.$emit('name-city', response.data))
                 this.query = ''
             },
