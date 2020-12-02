@@ -1,12 +1,11 @@
 /* eslint-disable vue/no-parsing-error */
 <template>
     <div id="app">
-        <main>
+        <main :class="{cold: temperature < 1, hot: temperature > 20}">
 
             <h1>actual weather</h1>
 
-            <search-form @name-city="weather = $event" />
-            
+            <search-form @name-city="weather = $event" @temp-val="temperature = $event" />
             
             <article v-if="typeof weather.main !='undefined'">
                 <city-name :weather="weather" />
@@ -31,6 +30,7 @@ export default {
     data() {
         return {
             weather: {},
+            temperature: ''
         }
     },
 }
@@ -46,8 +46,14 @@ export default {
 main {
     min-height: 100vh;
     padding: 1em;
-    background-image: linear-gradient(to bottom, rgba(128, 55, 55, 0), rgba(22, 153, 61, 0.8));
-    /* background-image: linear-gradient(to bottom, rgba(128, 55, 55, 0), rgba(255, 255, 255, 0.8)); */
+    background-image: linear-gradient(to bottom, rgba(128, 55, 55, 0), rgba(0, 146, 204, 0.76));
+}
+
+.cold {
+    background-image: linear-gradient(to bottom, rgba(128, 55, 55, 0), rgba(231, 230, 230, 0.8));
+}
+.hot {
+    background-image: linear-gradient(to bottom, rgba(128, 55, 55, 0), rgba(255, 0, 0, 0.815));
 }
 
 h1 {

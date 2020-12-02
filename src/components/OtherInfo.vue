@@ -37,11 +37,11 @@
     width: 90%;
     max-width: 500px;
     padding: 0.5em;
-    color: white;
+    color: rgb(7, 7, 7);
     font-size: 1em;
     font-weight: 500;
 
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgb(164, 225, 240, .5);
     border-radius: .5em;
     margin-top: 0.5em;
 
@@ -51,9 +51,11 @@
 span {
     opacity: 0.8;
     font-weight: lighter;
+    color: rgb(70, 70, 70);
 }
 
 strong {
     opacity: 1;
+    color: rgb(43, 43, 43);
 }
 </style>

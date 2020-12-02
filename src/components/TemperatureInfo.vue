@@ -2,10 +2,10 @@
     <aside class="temp">
         
         <span class="temperature">
-            {{ Math.round(weather.main.temp-274.15) }}<!-- °C -->
+            {{ Math.round(weather.main.temp-274.15) }}°C
         </span>
 
-        <span class="date">
+        <span class="weather">
             {{ weather.weather[0].main }}
         </span>
     </aside>
@@ -33,6 +33,10 @@
     background-color: rgba(255, 255, 255, 0.25);
     box-shadow: 4px 6px 3px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+}
+
+.weather {
+    color: rgb(70, 70, 70);
 }
 
 .temperature {

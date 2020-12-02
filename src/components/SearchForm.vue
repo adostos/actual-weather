@@ -32,10 +32,15 @@ import axios from 'axios'
             fetchWeather() {
                 axios
                 .get(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(this.query)}&appid=${this.api_key}`)
-                .then(response => this.$emit('name-city', response.data))
+                .then(response => {
+                    this.$emit('name-city', response.data)
+                    this.$emit('temp-val', response.data.main.temp-274.15)
+                })
+                .catch( error => {
+                    alert('Please enter the correct city or country', error)
+                })
                 this.query = ''
             },
-
             dateBuilder() {
                 let d = new Date();
                 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -53,6 +58,12 @@ import axios from 'axios'
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+* {
+    font-family: 'Acme', sans-serif;
+}
+
 .search-box {
     width: 100%;
     max-width: 500px;
@@ -99,6 +110,7 @@ import axios from 'axios'
 .search-input::placeholder {
     color: white;
     opacity: .9;
+    
 }
 
 .search-input:focus::placeholder,
